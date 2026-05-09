@@ -6,13 +6,13 @@ A stunning, editorial-grade news aggregator that scrapes live headlines from mul
 
 ## Features
 
-✨ **Live News Aggregation** — Scrapes headlines from 5 major news sources in real-time  
-🎨 **Editorial Design** — Dark luxury aesthetic inspired by high-end print publications  
-🔄 **Auto-Refresh** — Background updates every 15 minutes  
-🔍 **Smart Filtering** — Filter by source, category, or search keywords  
-📱 **Fully Responsive** — Beautiful on desktop, tablet, and mobile  
-⚡ **Fast & Cached** — 10-minute cache for optimal performance  
-🎯 **Deduplication** — Intelligent removal of duplicate articles  
+ **Live News Aggregation** — Scrapes headlines from 5 major news sources in real-time  
+ **Editorial Design** — Dark luxury aesthetic inspired by high-end print publications  
+ **Auto-Refresh** — Background updates every 15 minutes  
+ **Smart Filtering** — Filter by source, category, or search keywords  
+ **Fully Responsive** — Beautiful on desktop, tablet, and mobile  
+ **Fast & Cached** — 10-minute cache for optimal performance  
+ **Deduplication** — Intelligent removal of duplicate articles  
 
 ## News Sources
 
