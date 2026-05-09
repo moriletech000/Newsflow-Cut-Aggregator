@@ -1,4 +1,4 @@
-# NEWSFLOW — Live News Aggregator
+# NEWSFLOW CUT - Live News Aggregator
 
 A stunning, editorial-grade news aggregator that scrapes live headlines from multiple trusted news sources and displays them in a dark luxury magazine aesthetic.
 
