@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOBAL NEWS-CUT — Worldwide News Aggregator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Header Masthead -->
+    <header class="masthead">
+        <div class="masthead-top">
+            <div class="masthead-date" id="currentDate"></div>
+            <h1 class="masthead-logo">
+                <i class="fas fa-globe-americas"></i> GLOBAL NEWS-CUT
+            </h1>
+            <div class="masthead-live">
+                <span class="live-indicator"></span>
+                <span class="live-text">LIVE</span>
+                <span class="live-time" id="liveTime"></span>
+            </div>
+        </div>
+        <div class="masthead-stats">
+            <i class="fas fa-newspaper"></i> <span id="articleCount">0</span> articles from 
+            <i class="fas fa-building"></i> <span id="sourceCount">0</span> sources worldwide
+        </div>
+        <div class="masthead-divider"></div>
+    </header>
+
+    <!-- Ticker Bar -->
+    <div class="ticker-container">
+        <div class="ticker-content" id="tickerContent"></div>
+    </div>
+
+    <!-- Warning Banner -->
+    <div class="warning-banner" id="warningBanner" style="display: none;">
+        <i class="fas fa-exclamation-triangle"></i> Some news sources are temporarily unavailable. Showing cached data.
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="filter-section">
+            <div class="filter-label"><i class="fas fa-globe"></i> REGIONS</div>
+            <div class="filter-chips" id="regionFilters">
+                <button class="chip active" data-region="All">All Regions</button>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <div class="filter-label"><i class="fas fa-flag"></i> COUNTRIES</div>
+            <div class="filter-chips" id="countryFilters">
+                <button class="chip active" data-country="All">All Countries</button>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <div class="filter-label"><i class="fas fa-tags"></i> CATEGORIES</div>
+            <div class="filter-chips" id="categoryFilters">
+                <button class="chip active" data-category="All">All</button>
+                <button class="chip" data-category="World">World</button>
+                <button class="chip" data-category="Tech">Tech</button>
+                <button class="chip" data-category="Science">Science</button>
+                <button class="chip" data-category="Politics">Politics</button>
+                <button class="chip" data-category="Business">Business</button>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search articles..." class="search-input">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Loading State -->
+        <div id="loadingState" class="loading-state">
+            <div class="skeleton-hero"></div>
+            <div class="skeleton-grid">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </div>
+
+        <!-- Articles Container -->
+        <div id="articlesContainer" style="display: none;">
+            <!-- Hero Article -->
+            <div id="heroArticle"></div>
+
+            <!-- Secondary Articles -->
+            <div id="secondaryArticles" class="secondary-grid"></div>
+
+            <!-- Main Feed Grid -->
+            <div id="mainFeed" class="main-grid"></div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <div class="empty-icon"><i class="fas fa-newspaper"></i></div>
+            <h2>No articles found</h2>
+            <p>Try adjusting your filters or search query</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-globe-americas"></i> GLOBAL NEWS-CUT
+            </div>
+            <div class="footer-stats">
+                <i class="fas fa-clock"></i> <span id="footerUpdate">Last updated: Never</span>
+                <span class="footer-separator">•</span>
+                <i class="fas fa-building"></i> <span id="footerSources">0 sources</span>
+                <span class="footer-separator">•</span>
+                <i class="fas fa-newspaper"></i> <span id="footerArticles">0 articles</span>
+            </div>
+            <button id="refreshButton" class="refresh-button">
+                <i class="fas fa-sync-alt refresh-icon"></i>
+                <span class="refresh-text">Refresh Feed</span>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
